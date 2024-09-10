@@ -1,0 +1,15 @@
+{
+  "name": "chapo",
+  "version": "1.0.0",
+  "description": "Text processing with LLM",
+  "productName": "Chapo",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Neil Van Alino",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "electron": "^32.0.2"
+  }
+}

@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    padding: 1rem;
+}
+
+.text-result {
+    padding: 0.8rem;
+    height: 90vh;
+    overflow: auto;
+}
