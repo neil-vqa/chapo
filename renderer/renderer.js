@@ -2,6 +2,8 @@ const form = document.querySelector("form");
 const submitButton = document.querySelector('button[type="submit"]');
 const resultParagraph = document.getElementById("result");
 
+const userSettings = path.readUser();
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -28,8 +30,8 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
-    const baseUrl = "http://127.0.0.1:8080";
-    const response = await fetch(`${baseUrl}/v1/chat/completions`, {
+    const chatCompletions = userSettings.llmUrl;
+    const response = await fetch(`${chatCompletions}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
