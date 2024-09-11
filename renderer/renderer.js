@@ -30,7 +30,7 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
-    const chatCompletions = userSettings.llmUrl;
+    const chatCompletions = "http://127.0.0.1:8080/v1/chat/completions";
     const response = await fetch(`${chatCompletions}`, {
       method: "POST",
       headers: {
