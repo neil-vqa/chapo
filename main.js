@@ -1,5 +1,6 @@
 const { app, BrowserWindow, Menu } = require("electron");
 const path = require("node:path");
+const childProcess = require('child_process');
 
 const isDev = process.env.NODE_ENV === "dev";
 const menu = [];
@@ -33,6 +34,17 @@ const createMainWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  if (process.platform === 'win32') {
+    // Run the batch file
+    childProcess.exec('run_llama_server_for_chapo.bat', (error) => {
+      if (error) {
+        console.error('Error running batch file:', error);
+      } else {
+        console.log('Batch file executed successfully');
+      }
+    });
+  }
+
   createMainWindow();
 
   app.on("activate", () => {
