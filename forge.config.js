@@ -8,7 +8,7 @@ module.exports = {
     win32: {
       shortcutName: "Chapo",
       shortcutDescription: "Text processing with LLM",
-      shortcutIcon: "images/chapo-icon-win.ico",
+      shortcutIcon: "images/chapo-icon-win",
       shortcutCategory: "Productivity",
     },
   },
