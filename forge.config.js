@@ -5,12 +5,25 @@ module.exports = {
   packagerConfig: {
     asar: true,
     icon: "images/chapo-icon-win",
+    win32: {
+      shortcutName: "Chapo",
+      shortcutDescription: "Text processing with LLM",
+      shortcutIcon: "images/chapo-icon-win.ico",
+      shortcutCategory: "Productivity",
+    },
   },
   rebuildConfig: {},
   makers: [
     {
       name: "@electron-forge/maker-squirrel",
-      config: {},
+      config: {
+        shortcut: {
+          name: "Chapo",
+          description: "Text processing with LLM",
+          icon: "images/chapo-icon-win",
+          category: "Productivity",
+        },
+      },
     },
     {
       name: "@electron-forge/maker-zip",
