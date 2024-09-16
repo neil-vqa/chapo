@@ -1,8 +1,16 @@
 const form = document.querySelector("form");
 const submitButton = document.querySelector('button[type="submit"]');
 const resultParagraph = document.getElementById("result");
+const textarea = document.getElementById("textarea");
+const charCount = document.getElementById("charCount");
+const maxChars = 4000;
 
-const userSettings = path.readUser();
+const updateCharCount = () => {
+  const remainingChars = maxChars - textarea.value.length;
+  charCount.textContent = remainingChars;
+}
+
+textarea.addEventListener("input", updateCharCount);
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -15,9 +23,8 @@ form.addEventListener("submit", async (e) => {
   const extractEntities = document.getElementById("extract-entities").value;
 
   const extractThese = `\n\n\nExtract the following info: ${extractEntities}`;
-  const prompt = `Do ${task} the given text:\n\n\n${rawText}${
-    task === "Extract information" ? extractThese : ""
-  }`;
+  const prompt = `Do ${task} the given text:\n\n\n${rawText}${task === "Extract information" ? extractThese : ""
+    }`;
 
   const formData = {
     temperature: 0.7,

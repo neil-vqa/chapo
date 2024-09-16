@@ -1,47 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="renderer.js" defer></script>
-    <title>Chapo | Text processing with LLM</title>
-  </head>
-  <body>
-    <section class="columns">
-      <div class="column">
-        <form action="submit">
-          <div class="field">
-            <label class="label">Task</label>
-            <div class="control">
-              <div class="select">
-                <select id="task" required>
-                  <option selected>Grammar correction</option>
-                  <option>Paraphrase</option>
-                  <option>Summarize</option>
-                  <option>Extract information</option>
-                  <option>Extract keywords</option>
-                </select>
-              </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+  </style>
+  <link rel="stylesheet" href="bulma.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="renderer.js" defer></script>
+  <title>Chapo | Offline text processing with LLM</title>
+</head>
+
+<body>
+  <section class="columns">
+    <div class="column">
+      <form action="submit">
+        <div class="field">
+          <label class="label">Task</label>
+          <div class="control">
+            <div class="select">
+              <select id="task" required>
+                <option selected>Grammar correction</option>
+                <option>Paraphrase</option>
+                <option>Summarize</option>
+                <option>Extract information</option>
+                <option>Extract keywords</option>
+              </select>
             </div>
           </div>
+        </div>
 
-          <div class="field">
-            <label class="label">Text to process</label>
-            <div class="control">
-              <textarea
-                class="textarea"
-                rows="18"
-                id="raw-text"
-                required
-                placeholder="Example:
+        <div class="field">
+          <label class="label">Text to process</label>
+          <div class="control">
+            <textarea id="textarea" required class="textarea" rows="18" id="raw-text" maxlength="4000" placeholder="Example:
 
 Confidential - Internal Memo
 To: All Meta Employees
@@ -61,39 +55,34 @@ Thank you for your hard work and dedication.
 Best regards,
 
 Mark Zuckerberg
-CEO, Meta"
-              ></textarea>
-            </div>
+CEO, Meta"></textarea>
+            <p class="is-size-7">Characters left: <span id="charCount">4000</span></p>
           </div>
-
-          <div class="field">
-            <label class="label"
-              >Entities to extract (if extracting info)</label
-            >
-            <div class="control">
-              <input
-                class="input"
-                type="text"
-                id="extract-entities"
-                placeholder="Example: company name, subject, letter sender"
-              />
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              <button type="submit" class="button is-link">Go</button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="column">
-        <label class="label">Result</label>
-        <div class="content">
-          <p id="result" class="text-result">
-            (Processed text will appear here)
-          </p>
         </div>
+
+        <div class="field">
+          <label class="label">Entities to extract (if extracting info)</label>
+          <div class="control">
+            <input class="input" type="text" id="extract-entities"
+              placeholder="Example: company name, subject, letter sender" />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button type="submit" class="button is-link">Go</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="column">
+      <label class="label">Result</label>
+      <div class="content">
+        <p id="result" class="text-result">
+          (Processed text will appear here)
+        </p>
       </div>
-    </section>
-  </body>
+    </div>
+  </section>
+</body>
+
 </html>
