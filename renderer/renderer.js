@@ -19,7 +19,7 @@ form.addEventListener("submit", async (e) => {
   submitButton.innerText = "Processing...";
 
   const task = document.getElementById("task").value;
-  const rawText = document.getElementById("raw-text").value;
+  const rawText = document.getElementById("textarea").value;
   const extractEntities = document.getElementById("extract-entities").value;
 
   const extractThese = `\n\n\nExtract the following info: ${extractEntities}`;

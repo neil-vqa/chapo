@@ -34,7 +34,7 @@ const createMainWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  if (process.platform === 'win32') {
+  if (process.platform === 'win32' && !isDev) {
     // Run the batch file
     childProcess.exec('run_llama_server_for_chapo.bat', (error) => {
       if (error) {
