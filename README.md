@@ -1,3 +1,5 @@
 # chapo
 
-A text processing UI with LLM.
+![chapo banner](/images/chapo-banner.png)
+
+![demo](/images/chapo-demo.png)
